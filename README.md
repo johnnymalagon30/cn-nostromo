@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+This app allows users to enter key words to search the NASA historical archives.
+
 ## Getting Started
 
 Run the development server:

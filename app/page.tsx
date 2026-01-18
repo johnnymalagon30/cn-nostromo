@@ -1,5 +1,3 @@
-"use client"
-
 import SearchInput from "./components/SearchInput";
 import SearchResults from "./components/SearchResults";
 import BacktoTopButton from "./components/BacktoTopButton";

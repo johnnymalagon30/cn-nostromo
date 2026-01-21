@@ -1,3 +1,5 @@
+"use client"
+
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link} from "@heroui/react";
 
 import ModalButton from "./ModalButton";

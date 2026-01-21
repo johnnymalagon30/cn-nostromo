@@ -50,12 +50,27 @@ export default function SearchResults() {
   const randomQuote = getRandomItem(quotes);
 
   useEffect(() => {
-    
+    if (!query) return
 
     const fetchResults = async () => {
       setLoading(true)
       setError(null)
       try {
+        // Track the search query in the database
+        try {
+          await fetch('/api/search/track', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ query }),
+          })
+        } catch (trackError) {
+          // Silently fail tracking - don't block the search
+          console.error('Failed to track search query:', trackError)
+        }
+
+        // Fetch NASA API results
         const res = await fetch(`https://images-api.nasa.gov/search?q=${query}&page=1&page_size=50&media_type=image`)
         if (!res.ok) throw new Error("Failed to fetch data")
         const data = await res.json()
